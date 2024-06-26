@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-servlet-tomcat-tutorial
+
+
+server:
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 10s
+    # Maximum connections
+    max-connections: 2000
+    # Maximum waiting number
+    accept-count: 200
+    threads:
+      max: 500
+      min-spare: 100
