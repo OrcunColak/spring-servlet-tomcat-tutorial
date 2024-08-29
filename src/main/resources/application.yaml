@@ -4,13 +4,22 @@ spring:
 
 
 server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 1024
+    
   tomcat:
+    accesslog:
+      enabled: true
+      directory: log/tomcat
+      prefix: access_log
+      suffix: .txt
+      
     connection-timeout: 2s
-    keep-alive-timeout: 10s
-    # Maximum connections
-    max-connections: 2000
-    # Maximum waiting number
-    accept-count: 200
+    keep-alive-timeout: 10s # Keep-alive timeout in milliseconds
+    max-connections: 2000 # Maximum number of connections that can be handled
+    accept-count: 200 # Maximum number of connections that can be handled
     threads:
-      max: 500
-      min-spare: 100
+      max: 500 # Maximum number of connections that can be handled
+      min-spare: 100 # Minimum number of idle threads
